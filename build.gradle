@@ -16,7 +16,6 @@ plugins {
 
 apply plugin: 'java'
 apply plugin: 'jacoco'
-apply plugin: 'sonar'
 
 // Définition des repositories
 repositories {
