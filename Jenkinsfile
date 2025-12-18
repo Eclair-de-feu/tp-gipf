@@ -18,7 +18,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Exécution des tests et génération du rapport JaCoCo...'
-                sh './gradlew test jacocoTestReport'
+                sh './gradlew -Dhttps.proxyHost=proxy1-rech -Dhttps.proxyPort=3128 test jacocoTestReport'
             }
         }
 
