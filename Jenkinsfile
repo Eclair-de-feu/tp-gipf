@@ -11,7 +11,7 @@ pipeline {
         stage('Compilation') {
             steps {
                 echo 'Compilation du projet...'
-                sh './gradlew -Dhttp.proxyHost=proxy1-rech -Dhttp.proxyPort=3128 compileJava'
+                sh './gradlew -Dhttps.proxyHost=proxy1-rech -Dhttps.proxyPort=3128 compileJava'
             }
         }
 
