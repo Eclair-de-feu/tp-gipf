@@ -22,6 +22,12 @@ pipeline {
             }
         }
 
+        stage('Sonar') {
+            steps {
+                echo 'Sonar'
+            }
+        }
+
         stage('JAR') {
             steps {
                 echo 'Construction du JAR...'
