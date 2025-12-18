@@ -10,6 +10,7 @@
 
 plugins {
     id 'org.liquibase.gradle' version '2.2.0'
+    id 'jacoco'
 }
 
 apply plugin: 'java'
