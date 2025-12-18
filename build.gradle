@@ -25,7 +25,7 @@ repositories {
 sonar {
   properties {
     property("sonar.projectKey", "myProjectKey")
-    property("sonar.host.url", "myHostUrl")
+    property("sonar.host.url", "http://localhost:9000/projects/create")
   }
 }
 
