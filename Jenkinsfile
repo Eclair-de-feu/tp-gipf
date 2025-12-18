@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        SONAR_HOST_URL = 'http://localhost:9000'
-        SONAR_LOGIN = credentials('sonar-token')
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -24,18 +19,6 @@ pipeline {
             steps {
                 echo 'Exécution des tests et génération du rapport JaCoCo...'
                 sh './gradlew test jacocoTestReport'
-            }
-        }
-
-        stage('SonarQube') {
-            steps {
-                echo 'Analyse SonarQube...'
-                withSonarQubeEnv('SonarQube') {
-                    sh './gradlew sonarqube \
-                        -Dsonar.projectKey=ton-projet \
-                        -Dsonar.host.url=${SONAR_HOST_URL} \
-                        -Dsonar.login=${SONAR_LOGIN}'
-                }
             }
         }
 
