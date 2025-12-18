@@ -9,8 +9,7 @@
 
 
 plugins {
-    id 'org.liquibase.gradle' version '2.2.0',
-    id("org.sonarqube") version "25.12.0.117093"
+    id 'org.liquibase.gradle' version '2.2.0'
 }
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
