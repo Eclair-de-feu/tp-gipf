@@ -25,7 +25,7 @@ pipeline {
         stage('JAR') {
             steps {
                 echo 'Construction du JAR...'
-                sh './gradlew Jar'
+                sh './gradlew jar'
             }
         }
     }
