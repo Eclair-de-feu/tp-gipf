@@ -20,14 +20,6 @@ repositories {
     mavenCentral()
 }
 
-sonar {
-    properties {
-        property("sonar.projectKey", "myProjectKey")
-        property("sonar.host.url", "http://localhost:9000") // URL correcte du serveur SonarQube
-        // Si tu as des paramètres supplémentaires, tu peux les ajouter ici
-    }
-}
-
 test {
     useJUnitPlatform() // Utilisation de JUnit 5 pour les tests
 }
