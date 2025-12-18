@@ -10,10 +10,10 @@
 
 plugins {
     id 'org.liquibase.gradle' version '2.2.0'
-    id 'org.sonarqube' version '4.0'  // Mettre à jour à une version plus récente si nécessaire
 }
 
 apply plugin: 'java'
+apply plugin: 'jacoco'
 
 // Définition des repositories
 repositories {
