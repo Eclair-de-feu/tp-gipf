@@ -17,9 +17,9 @@ pipeline {
                 echo 'Testing..'
             }
         }
-        stage('Deploy') {
+        stage('Publish Artifact to Nexus') {
             steps {
-                echo 'Deploying....'
+                sh './gradlew publish --no-daemon'
             }
         }
     }
