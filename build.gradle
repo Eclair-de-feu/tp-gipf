@@ -10,42 +10,43 @@
 
 plugins {
     id 'org.liquibase.gradle' version '2.2.0'
-    id 'org.sonarqube'
+    id 'org.sonarqube' version '4.0'  // Mettre à jour à une version plus récente si nécessaire
 }
-// Apply the java plugin to add support for Java
+
 apply plugin: 'java'
 
-// In this section you declare where to find the dependencies of your project
+// Définition des repositories
 repositories {
-    // Use 'jcenter' for resolving your dependencies.
-    // You can declare any Maven/Ivy/file repository here.
     mavenCentral()
 }
 
 sonar {
-  properties {
-    property("sonar.projectKey", "myProjectKey")
-    property("sonar.host.url", "http://localhost:9000/projects/create")
-  }
+    properties {
+        property("sonar.projectKey", "myProjectKey")
+        property("sonar.host.url", "http://localhost:9000") // URL correcte du serveur SonarQube
+        // Si tu as des paramètres supplémentaires, tu peux les ajouter ici
+    }
 }
 
 test {
-    useJUnitPlatform()
+    useJUnitPlatform() // Utilisation de JUnit 5 pour les tests
 }
 
-// In this section you declare the dependencies for your production and test code
+// Déclaration des dépendances
 dependencies {
-    implementation 'org.postgresql:postgresql:42.7.3'
-    testImplementation 'ch.qos.logback:logback-classic:1.5.6'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
-    testImplementation 'org.hamcrest:hamcrest-library:1.3'
-    testImplementation 'com.github.npathai:hamcrest-optional:1.0'
-    testImplementation 'org.testcontainers:postgresql:1.19.8'
+    implementation 'org.postgresql:postgresql:42.7.3' // Dépendance pour PostgreSQL
+    testImplementation 'ch.qos.logback:logback-classic:1.5.6' // Logback pour les tests
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2' // API JUnit 5
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.10.2' // Paramètres JUnit 5 (si utilisé)
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.2' // Engine JUnit 5 pour l'exécution des tests
+    testImplementation 'org.hamcrest:hamcrest-library:1.3' // Bibliothèque Hamcrest pour les assertions
+    testImplementation 'com.github.npathai:hamcrest-optional:1.0' // Hamcrest pour les Optional
+    testImplementation 'org.testcontainers:postgresql:1.19.8' // Testcontainers pour PostgreSQL
 }
 
+// Configuration du JAR pour définir la classe principale
 jar {
     manifest {
-        attributes 'Main-Class': 'gipf.Main'
+        attributes 'Main-Class': 'gipf.Main' // Assurez-vous que 'gipf.Main' est bien la classe principale
     }
 }
