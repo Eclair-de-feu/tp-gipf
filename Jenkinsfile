@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Compilation') {
             steps {
                 echo 'Compilation'
                 sh './gradlew -Dhttp.proxyHost=proxy1-rech -Dhttp.proxyPort=3128 compileJava'
@@ -13,9 +13,14 @@ pipeline {
                 echo 'Testing..'
             }
         }
-        stage('Deploy') {
+        stage('Sonar') {
             steps {
-                echo 'Deploying....'
+                echo 'Sonar....'
+            }
+        }
+        stage('JAR') {
+            steps {
+                echo 'JAR....'
             }
         }
     }
