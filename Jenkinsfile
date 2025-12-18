@@ -43,6 +43,7 @@ pipeline {
     post {
         always {
             echo 'Pipeline terminé.'
+            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
         }
     }
 }
