@@ -22,9 +22,13 @@ pipeline {
             }
         }
 
-        stage('Sonar') {
+        stage('SonarQube Analysis') {
             steps {
-                echo 'Sonar'
+                sh "./gradlew sonar \
+                  -Dsonar.projectKey=tp-gipf \
+                  -Dsonar.projectName='tp-gipf' \
+                  -Dsonar.host.url=http://172.17.0.1:9000 \
+                  -Dsonar.token=sqp_aedac4cd369479f1b1412148fd67bf3ddb793cff"
             }
         }
 
